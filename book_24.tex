@@ -1,0 +1,241 @@
+\documentclass{book}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm, bottom=2cm,left=3cm,right=3cm,marginparwidth=1.95cm]{geometry}
+\usepackage{xcolor}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{setspace}
+
+
+
+\setcounter{chapter}{5}
+\setcounter{section}{3}
+\newcounter{problem1}
+\setcounter{problem1}{13}
+\newcommand{\problem}{\par\addtocounter{problem1}{1}%
+\textbf{Problem \arabic{chapter}.\arabic{problem1} }\quad}
+\setcounter{equation}{25}
+\setcounter{subsection}{3}
+
+\begin{document}
+
+  \large\textit{5.3 Fractional changes with general exponents} \hfill \textbf{89} \\
+
+\subsection {\Large Limits of validity}
+
+\noindent \Large {The linear fractional-change approximation}
+\begin{equation}
+\frac{\Delta (x^n)}{x^n}\approx{n}\times{\frac{\Delta x}{x}}
+\end{equation}
+has been useful. But when is it valid? To investigate without drowning
+in notation, write $z$ for $\Delta x$; then choose $x = 1$ to make $z$ the absolute
+and the fractional change. The right side becomes $nz$, and the linear
+fractional-change approximation is equivalent to
+\begin{equation}
+(1+z)^n\approx{1+nz}.
+\end{equation}
+\Large The approximation becomes inaccurate when z is too large: for example,
+when evaluating $\sqrt{1+z}$ with $z = 1$ (Problem 5.22). Is the exponent n
+also restricted? The preceding examples illustrated only moderate-sized
+exponents: $n = 2$ for energy consumption (Section 5.2.3), −2 for fuel
+efficiency (Problem 5.18), −1 for reciprocals (Section 5.3.1), 1/2 for square
+roots (Section 5.3.2), and −2 and 1/4 for the seasons (Section 5.3.3). We
+need further data.\par\medskip
+ $\blacktriangleright$ \textit{What happens in the extreme case of large exponents?}\par\medskip
+\Large With a large exponent such as $n = 100$ and, say, $z = 0.001$, the approximation
+predicts that $1.001100\approx 1.1$---close to the true value of 1.105 . . .
+However, choosing the same n alongside $z = 0.1$ (larger than 0.001 but
+still small) produces the terrible prediction\\[12pt]
+\begin{equation}
+\underbrace{1.1^{100}}_{(1+z)^n} = 1+\underbrace{100\times0.1}_{nz} = 11;
+\end{equation}
+\Large $1.1^{100}$ is roughly 14,000, more than 1000 times larger than the prediction.
+Both predictions used large $n$ and small $z$, yet only one prediction was
+accurate; thus, the problem cannot lie in $n$ or $z$ alone. Perhaps the culprit
+is the dimensionless product $nz$. To test that idea, hold $nz$ constant while
+trying large values of $n$. For $nz$, a sensible constant is 1---the simplest
+dimensionless number. Here are several examples.
+\begin{equation}
+\begin{split}
+1.1^{10}\approx 2.59374 &,\\
+1.01^{100}\approx 2.70481 &,\\
+1.001^{1000}\approx 2.71692 &.
+\end{split}
+\end{equation}
+
+%--------------------------------------------------------------------------------------------------------------------------------
+
+\newpage
+
+
+\large\textbf{90} \hfill \textit{5 Taking out the big part} \\
+
+\Large\noindent In each example, the approximation incorrectly predicts that $(1 + z)^n = 2$.
+\begin{flushleft}
+$\blacktriangleright$ \textit{What is the cause of the error?}
+\end{flushleft}\par\medskip
+\begin{minipage}{\textwidth}
+ \Large\noindent  To find the cause, continue the sequence beyond\\
+$1.001^{1000}$ and hope that a pattern will emerge: The\\
+values seem to approach $e = 2.718281828$ . . .., the\\
+base of the natural logarithms. Therefore, take the\\
+logarithm of the whole approximation.\\
+\begin{equation}
+\ln{(1+z)^z}=n\ln{(1+z)}
+\end{equation}
+Pictorial reasoning showed that $\ln{(1 + z)}\approx {z}$ when\\
+$z \ll 1$ (Section 4.3). Thus, $n \ln{(1 + z)}\approx {nz}$, making\\
+$(1 + z)n\approx {e^{nz}}$. This improved approximation\\ 
+\end{minipage} 
+\Large\textrm{explains why the approximation $(1 + z)^n\approx 1 + nz$ failed with large $nz$:
+Only when $nz \ll 1$ is $e^{nz}$ approximately $1 + nz$. Therefore, when $z \ll 1$
+the two simplest approximation are}
+\begin{equation}
+(1 + z)^n \approx
+\begin{cases}
+1+nz, & \text{($z\ll  1$ and $nz\ll 1$),} \\
+e^{nz}, & \text{($z\ll 1$ and $nz$ unrestricted).}
+\end{cases}
+\end{equation}
+\begin{minipage}{\textwidth}
+\noindent The diagram shows, across the whole\\
+$n$--$z$ plane, the simplest approximation\\
+in each region. The axes are logarithmic\\
+and $n$ and $z$ are assumed positive:\\
+The right half plane shows $z\gg 1$, and\\
+the upper half plane shows $n\gg 1$. On\\
+the lower right, the boundary curve is\\
+$n \ln{z} = 1$. Explaining the boundaries\\
+and extending the approximations is an\\
+instructive exercise (Problem 5.28).\\
+\end{minipage}\par\medskip
+\colorbox{lightgray}{
+\begin{minipage}{\textwidth}
+\Large{{\bf \problem  Explaining the approximation plane}}
+
+\large In the right half plane, explain the $n/z = 1$ and $n \ln{z} = 1$ boundaries. For the
+whole plane, relax the assumption of positive $n$ and $z$ as far as possible.
+\\
+\Large{{\bf \problem  Binomial-theorem derivation}}
+
+\large Try the following alternative derivation of $(1+z)^{n}\approx e^{nz}$ (where $n\gg 1$). Expand
+$(1 + z)^{n}$ using the binomial theorem, simplify the products in the binomial
+coefficients by approximating $n$--$k$ as $n$, and compare the resulting expansion
+to the Taylor series for $e^{nz}$.
+
+\end{minipage}}
+
+%--------------------------------------------------------------------------------------------------------------------------------
+
+\newpage
+
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+
+  \large\textit{5.4 Successive approximation: How deep is the well?} \hfill \textbf{91} \\
+
+\section {\Large Successive approximation: How deep is the well?}
+
+\Large The next illustration of taking out the big part emphasizes successive
+approximation and is disguised as a physics problem
+
+\begin{quote}
+ \normalsize You drop a stone down a well of unknown depth h and hear the splash 4 s
+later. Neglecting air resistance, find h to within 5\%. Use $c_s = 340 m s^{-1}$ as
+the speed of sound and $g = 10 m s^{-2}$ as the strength of gravity.
+\end{quote}
+
+\noindent Approximate and exact solutions give almost the same well depth, but
+offer significantly different understandings.
+
+\subsection {\Large Exact depth}
+\Large\noindent The depth is determined by the constraint that the $4 s$ wait splits into two
+times: the rock falling freely down the well and the sound traveling up
+the well. The free-fall time is $\sqrt{2h/g}$ (Problem 1.3), so the total time is
+\begin{equation}
+T=\underbrace{\sqrt{\frac{2h}{g}}}_{\textrm{rock}}+\underbrace{\frac{h}{c_s}}_{\textrm{style}}
+\end{equation}
+\Large\noindent To solve for $h$ exactly, either isolate the square root on one side and square
+both sides to get a quadratic equation in $h$ (Problem 5.30); or, for a less
+error-prone method, rewrite the constraint as a quadratic equation in a
+new variable $z =\sqrt{h}$.\par\medskip
+\colorbox{lightgray}{
+\begin{minipage}{\textwidth}
+\Large{{\bf \problem Other quadratic}}
+\large Solve for $h$ by isolating the square root on one side and squaring both sides.
+What are the advantages and disadvantages of this method in comparison with
+the method of rewriting the constraint as a quadratic in $z = \sqrt{h}$?
+\end{minipage}}\par\medskip
+\Large As a quadratic equation in z = √h, the constraint is\\
+\begin{equation}
+\frac1{c_s}z^2+\sqrt{\frac2{g}}z-T=0
+\end{equation}
+\Large Using the quadratic formula and choosing the positive root yields\\
+\begin{equation}
+h=\frac{-\sqrt{2/{g}}+\sqrt{2/{g}+{4T}/{c_s}}}{2/{c_s}}
+\end{equation}
+\Large Because $z^2 = h$,
+
+\newpage
+
+\large\textbf{92} \hfill \textit{5 Taking out the big part} \\
+
+\begin{equation}
+h= \left( \frac{-\sqrt{2/{g}}+\sqrt{2/{g}+{4T}/{c_s}}}{2/{c_s}}\right)^2
+\end{equation}
+
+\Large Substituting $g=10ms^{-2}$ and $c_s=340ms^{-1}$ gives $h\approx71.56m$.\\
+Even if the depth is correct, the exact formula for it is a mess. Such high-\\
+entropy horrors arise frequently from the quadratic formula; its use often\\
+signals the triumph of symbol manipulation over thought. Exact answer,\\
+we will find, may be less  useful than approximate answers.
+
+\subsection{\Large Approximate depth}
+
+\Large To find a low-entropy, approximate depth, identify the big part---the\\
+most important effect. Here, most of the total time is the rock's free\\
+fall: The rock' s maximum speed, even if it fell for the entire $4 s$, is only\\
+$gT = 40ms^{-1}$, which is far below $c_s$. Therefore, the most important effect\\
+should arise in the extreme case of infinite sound speed.\\[6pt]
+ $\blacktriangleright$ \textit{If $c_s = \infty$, how deep is the well?}\\[6pt]
+\Large In this zeroth approximation, the free-fall time $t_0$ is the full time $T = 4 s$,
+so the well depth $h_0$ becomes\\[6pt]
+ $\blacktriangleright$ \textit{Is this approximate depth an overestimate or underestimate? How accurate is it?}\\[6pt]
+\begin{equation}
+{h_0=\frac1{2}g{t^2_0}=80m}.
+\end{equation}
+\Large This approximation neglects the sound-travel time, so it overestimates
+the free-fall time and therefore the depth. Compared to the true depth
+of roughly $71.56 m$, it overestimates the depth by only $11\%$--reasonable
+accuracy for a quick method offering physical insight. Furthermore, this
+approximation suggests its own refinement.\\[6pt]
+ $\blacktriangleright$ \textit{How can this approximation be improved?}\\[6pt]
+\begin{minipage}{\textwidth}
+\Large To improve it, use the approximate depth $h_0$ to approx-\\
+imate the sound-travel time.\\
+\begin{equation}
+{t_{\textrm{sound}}\approx \frac{h_0}{c_s}\approx 0.24}.
+\end{equation}
+\end{minipage}
+\Large The remaining time is the next approximation to the free-fall time.
+
+
+
+
+\end{document}
