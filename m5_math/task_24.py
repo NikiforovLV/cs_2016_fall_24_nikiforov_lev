@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #1
-def summa1(list1):
+def summa1(list0):
     a=0
-    for b in list:
+    for b in list0:
         a+=b
     return(a)
 
@@ -18,7 +18,7 @@ def summa2(list):
         b+=1
     return(a)
 
-def summa3(list):
+def summa3(list0):
     if len(list)==1:
         return list[0]
     return list[-1]+srec(list[:-1])
